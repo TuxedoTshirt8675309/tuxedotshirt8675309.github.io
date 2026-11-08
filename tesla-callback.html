@@ -1,0 +1,11 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Vivian: Tesla sign-in</title></head>
+<body style="font:16px system-ui,sans-serif;background:#0d0e10;color:#e9ebee;padding:40px;max-width:560px">
+<p id="m">Sending you back to Vivian on your PC…</p>
+<p style="color:#8b929b;font-size:13px">This page only passes Tesla's one-time sign-in code to Vivian on this computer (localhost). It stores nothing.</p>
+<script>
+var q = location.search;
+if (!/[?&]code=/.test(q)) document.getElementById('m').textContent = 'Tesla did not send a sign-in code. Go back to Vivian and try Sign in with Tesla again.';
+else location.replace('http://localhost:7777/api/tesla/callback' + q);
+</script>
+</body></html>
